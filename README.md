@@ -1,4 +1,8 @@
-# Repman - PHP Repository Manager
+# paynl-Repman - PHP Repository Manager
+
+This is still WORK IN PROGRESS (changed files not yet commit).
+- We had some problems with files righs and the crontab running as 'root'.
+- We made some minor (still local) changes to some files and added yacron for a cron running commands as user 'www-data'.
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
 [![Uptime Robot ratio (24h)](https://badgen.net/uptime-robot/day/m784813562-93c7dab381e24ccdb679c5d2)](https://stats.uptimerobot.com/QAMQli6XQM)
