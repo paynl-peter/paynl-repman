@@ -24,4 +24,3 @@
     shell: /bin/sh
     schedule: "0 1 * * *"
     user: www-data
-
