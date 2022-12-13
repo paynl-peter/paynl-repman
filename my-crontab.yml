@@ -1,0 +1,27 @@
+ jobs:
+  - name: sync-releases
+    command: /app/bin/console repman:proxy:sync-releases
+    shell: /bin/sh
+    schedule: "*/5 * * * *"
+    user: www-data
+  - name: sync-metadata
+    command: /app/bin/console repman:proxy:sync-metadata
+    shell: /bin/sh
+    schedule: "*/6 * * * *"
+    user: www-data
+  - name: update-db
+    command: /app/bin/console repman:security:update-db
+    shell: /bin/sh
+    schedule: "0 */2 * * *"
+    user: www-data
+  - name: send
+    command: /app/bin/console repman:telemetry:send
+    shell: /bin/sh
+    schedule: "0 0 * * *"
+    user: www-data
+  - name: clear-old-dists
+    command: /app/bin/console repman:package:clear-old-dists
+    shell: /bin/sh
+    schedule: "0 1 * * *"
+    user: www-data
+
