@@ -51,11 +51,11 @@ COPY . .
 ENV APP_ENV=prod
 RUN composer install --optimize-autoloader --no-dev
 
-# RUN "apk add" to install yacron for sudo 'www-data'
+# RUN "apk add" to install yacron to sudo with user 'www-data'
 RUN apk add python3 python3-dev py3-pip
 RUN pip3 install pipx
 RUN pipx install yacron
 
-# yacron cron, This starts yacron (in background) and reads /tmp/my-crontab.yml
+# for yacron cron, need yml file to start yacron (in background) and to read /tmp/my-crontab.yml
 ADD my-crontab.yml /tmp/
 

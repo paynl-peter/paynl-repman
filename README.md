@@ -2,9 +2,8 @@
 
 
 Still WORK IN PROGRESS, not all the changed/added file(s) are yet commited.
-
-    We had some problems with file rights with after the docker build and also the crontab commands were running as 'root'.
-    We made some minor (still local) changes to some files and added yacron for 'a cron' running the commands as user 'www-data'.
+- We had some problems with file rights with after the docker build and also the crontab commands were running as 'root'.
+- We made some minor (still local) changes to some files and added yacron for 'a cron' running the commands as user 'www-data'.
 
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
