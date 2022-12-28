@@ -62,6 +62,6 @@ RUN apk add python3 python3-dev py3-pip
 RUN pip3 install pipx
 RUN pipx install yacron
 
-# for yacron cron, need yml file to start yacron (in background) and to read /tmp/my-crontab.yml
+# for yacron cron, need yml file to start yacron (in background) and to read /tmp/yacron.yml
 ADD yacron.yml /tmp/
 
