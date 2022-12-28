@@ -54,7 +54,7 @@ RUN composer install --optimize-autoloader --no-dev
 # change owner 'var' directory and mkdir 'var/repo' and change user to '82'='www-date' to be able to write the logfiles
 ## doesn't work on 'var' with normal user, need 'chown' as 'root'.
 RUN chown -R 82:82 /app/var
-### RUN mkdir /app/var/repo
+#RUN mkdir /app/var/repo
 RUN chown -R 82:82 /app/var/repo
 
 # RUN "apk add" to install yacron to sudo with user 'www-data'
