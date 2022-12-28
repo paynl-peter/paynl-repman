@@ -60,7 +60,7 @@ services:
     ## old cron
     #command: ['crond', '-f', '-L', '/app/var/log/cron.log', '-l' ,'8']
     command: >
-      bash -c '/root/.local/bin/yacron -c /tmp/my-crontab.yml |tee -a /app/var/log/yacron.log'
+      bash -c '/root/.local/bin/yacron -c /tmp/yacron.yml |tee -a /app/var/log/yacron.log'
     env_file: .env.docker
     volumes:
       - app-var:/app/var
