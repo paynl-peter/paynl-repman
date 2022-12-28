@@ -5,7 +5,10 @@ Still WORK IN PROGRESS, not all the changed/added file(s) are yet commited.
 - We had some problems with file rights with after the docker build and also the crontab commands were running as 'root'.
 - We made some minor (still local) changes to some files and added yacron for 'a cron' running the commands as user 'www-data'.
 
+Before a 'docker-compose up'
+chown 82:82 (is user 'www-data' on the container) the 'public' and 'var' directory.
 
+------------------------------
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
 [![Uptime Robot ratio (24h)](https://badgen.net/uptime-robot/day/m784813562-93c7dab381e24ccdb679c5d2)](https://stats.uptimerobot.com/QAMQli6XQM)
 [![buddy pipeline](https://app.buddy.works/repman/repman/pipelines/pipeline/244546/badge.svg?token=dbd28b3ece0d16aba095b8a33d0893d15f0403fbcc285a2a1a175cc77f7c94a8 "buddy pipeline")](https://app.buddy.works/repman/repman/pipelines/pipeline/244546)
