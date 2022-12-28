@@ -51,6 +51,11 @@ COPY . .
 ENV APP_ENV=prod
 RUN composer install --optimize-autoloader --no-dev
 
+# change owner 'var' directory and mkdir 'var/repo' and change user to '82'='www-date' to be able to write the logfiles!
+RUN chown -R 82:82 /app/var #doesn't work with normal user, need 'chown' as 'root'
+RUN mkdir /app/var/repo
+RUN chown -R 82:82 /app/var/repo
+
 # RUN "apk add" to install yacron to sudo with user 'www-data'
 RUN apk add python3 python3-dev py3-pip
 RUN pip3 install pipx
