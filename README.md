@@ -3,27 +3,32 @@
 We had some problems with file permissions after the docker build and tweaked some things and finally got it working with no error messages.
 So I made this repman fork with our changes. It's a bit of a mess (to many commits) because there are many small changes, but in the end we got it working. I hope this will help others to get it working.
 
-### Some problems were:
+### Some of the problems were:
 - The logs could not be saved.
-- crontab commands were running as root where in 2 cases this was the cause of the problem. To 
+- crontab commands were running as root. Where in 2 cases this was the cause and/or causing the a problem. 
 - When downloading the packages they were given the file permissions of 'root' so deleting via the web interface was not possible.
 
+Maybe I forgot to mention one that was/is also a problem but the above were the most important.
+
 ### We used, installing on a (new) local server, the following commands:
-- git clone https://github.com/repman-io/repman.git
-- cd repman
-- composer install --ignore-platform-reqs
-- apt-get install php8.1-xm php8.1-xml
-- composer install --ignore-platform-reqs
-- docker-compose up
+```bash
+git clone https://github.com/repman-io/repman.git
+cd repman
+composer install --ignore-platform-reqs
+apt-get install php8.1-xm php8.1-xml
+composer install --ignore-platform-reqs
+docker-compose up
+```
 
 ### NOTE
 Before a 'docker-compose up' do a chown on 2 directories.
-- chown 82:82 ./public ./var
-
+```bash
+chown 82:82 ./public ./var
+```
 This is user 'www-data' on the containers and the UID was diferrent.
 
-### The changed crontab
-We used yacron to work through the crontab issues.
+### crontab changes
+In the end we are using 'yacron' to work through the crontab issues.
 
 ------------------------------
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
