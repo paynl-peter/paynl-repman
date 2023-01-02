@@ -1,12 +1,22 @@
-# paynl-repman - PHP Repository Manager (a fork)
+# repman-paynl - PHP Repository Manager (a fork with small adjustments)
 
+We had some problems with file permissions after the docker build and tweaked some things and finally got it working with no error messages.
+So I made this repman fork with our changes. Its a bit of a mess (to many commits) because there are many small changes, but in the end we got it working. I hope this will help others to get it working.
 
-Still WORK IN PROGRESS, not all the changed/added file(s) are yet commited.
-- We had some problems with file rights with after the docker build and also the crontab commands were running as 'root'.
-- We made some minor (still local) changes to some files and added yacron for 'a cron' running the commands as user 'www-data'.
+- The logs could not be saved.
+- When downloading the packages they were given the file permissions of 'root' so deleting via the web interface was not possible.
+- crontab commands were running as root where in 2 cases this was the cause of the problem.
 
-Before a 'docker-compose up'
-chown 82:82 (is user 'www-data' on the container) the 'public' and 'var' directory.
+We used installing on a (new) local server:
+    - git clone https://github.com/repman-io/repman.git
+    - cd repman
+    - composer install --ignore-platform-reqs
+    - apt-get install php8.1-xm php8.1-xml
+    - composer install --ignore-platform-reqs
+    - docker-compose up
+
+HINT: Before a 'docker-compose up' do:
+chown 82:82 (is user 'www-data' on the containers) on './public' and './var' directories.
 
 ------------------------------
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
